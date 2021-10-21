@@ -16,6 +16,7 @@ nav {
 h1 {
     width: 110px;
     color: white;
+    font-family: 'Jura', sans-serif;
 }
 
 .logo {
@@ -36,16 +37,37 @@ h1 {
 .listaMenu li {
         color:white;
         list-style-type: none;
+        padding: 10px;
+}
+
+.listaMenu li:hover {
+    animation: hover 0.3s;
+    animation-fill-mode: forwards;
+    cursor: pointer;
+}
+
+@keyframes hover {
+    0% {transform: translateY(0);
+        font-weight: 600
+    }
+    100% {
+        transform: translateY(-2.5px);
+        font-weight: 600;
+    }
 }
 
 .MuiInput-root {
         width:270px ;
         height: 40px;
         background-color: white;
-        border-radius: 15px;
-        padding-left: 10px;
+        border-radius: 20px;
+        padding-left: 20px;
+       
 
 }
+
+
+
 
 .buscador {
     position:relative;
@@ -54,6 +76,7 @@ h1 {
 }
 .lupa, .carrito {
     color:#81AC49;
+    cursor: pointer;
 }
 
 .lupa {

@@ -5,7 +5,6 @@ function App() {
     <div className="App">
     <NavBar 
     menu={["INICIO", "PRODUCTOS", "LOCALES", "CONTACTO"]}
-    
     />
     </div>
   );
