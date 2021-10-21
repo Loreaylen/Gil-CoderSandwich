@@ -1,22 +1,38 @@
 import React from "react";
+import "./NavBar.css"
+import logo from "./logoSanguche.png"
+import SearchIcon from '@mui/icons-material/Search';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Input from '@mui/material/Input';
 
 
-const NavBar = ({ menu, carrito }) => {
+const NavBar =  (props) => {
     
 
     return (
         <header className="NavBar"> 
             <nav>
-                <ul>
+                <div className="contenedor">
+                    <img src={logo} className="logo" alt="Logo"></img>
+                    <h1>Coder Sandwich</h1>
+                </div>
+
+                <div className="buscador">
+                <Input type="text" placeholder="Buscar" />
+                <SearchIcon className="lupa"/>
+                </div>
+                
+
+                <ul className="listaMenu">
                     { 
-                     menu.map((item, indice) => <li key={indice}>{item}</li>)
+                     props.menu.map((item, indice) => <li key={indice}>{item}</li>)
                     }
                     
                 </ul>
 
-                <div>
-                    {carrito}
-                </div>
+                
+                <ShoppingCartIcon className="carrito" />
+                
             </nav>
         </header>
     );

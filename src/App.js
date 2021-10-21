@@ -4,8 +4,8 @@ function App() {
   return (
     <div className="App">
     <NavBar 
-    menu={["Inicio", "Productos", "Locales", "Contacto"]}
-    carrito={"Carrito"}
+    menu={["INICIO", "PRODUCTOS", "LOCALES", "CONTACTO"]}
+    
     />
     </div>
   );

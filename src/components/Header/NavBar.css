@@ -1,0 +1,63 @@
+nav {
+    background-color: #363734;
+    height: 11vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contenedor {  
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+h1 {
+    width: 110px;
+    color: white;
+}
+
+.logo {
+    width: 95px;
+    height: 95px;
+    
+}
+
+.listaMenu {
+            width: 500px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+           
+            
+}
+
+.listaMenu li {
+        color:white;
+        list-style-type: none;
+}
+
+.MuiInput-root {
+        width:270px ;
+        height: 40px;
+        background-color: white;
+        border-radius: 15px;
+        padding-left: 10px;
+
+}
+
+.buscador {
+    position:relative;
+    display: flex;
+    align-items: center;
+}
+.lupa, .carrito {
+    color:#81AC49;
+}
+
+.lupa {
+    position:absolute;
+    right: 4px;
+;
+}
