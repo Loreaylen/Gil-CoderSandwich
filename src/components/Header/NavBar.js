@@ -1,8 +1,8 @@
 import React from "react";
 import "./NavBar.css"
+import CartWidget from "./CartWidget"
 import logo from "./logoSanguche.png"
 import SearchIcon from '@mui/icons-material/Search';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Input from '@mui/material/Input';
 
 
@@ -24,7 +24,7 @@ const NavBar = (props) => {
                         props.menu.map((item, indice) => <li key={indice}>{item}</li>)
                     }
                 </ul>
-                <ShoppingCartIcon className="carrito" />
+                <CartWidget />
             </nav>
         </header>
     );

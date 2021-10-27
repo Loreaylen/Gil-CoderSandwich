@@ -1,4 +1,5 @@
 import NavBar from "./components/Header/NavBar"
+import ItemListContainer from "./components/Body/ItemListContainer";
 
 function App() {
   return (
@@ -6,6 +7,7 @@ function App() {
     <NavBar 
     menu={["INICIO", "PRODUCTOS", "LOCALES", "CONTACTO"]}
     />
+    <ItemListContainer greeting="¡Bienvenido a Coder Sandwich!"/>
     </div>
   );
 }
