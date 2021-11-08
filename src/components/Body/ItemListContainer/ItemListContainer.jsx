@@ -1,14 +1,13 @@
 import React from "react";
 import "../ItemListContainer/ItemListContainer.css"
-import ItemCount from "../ItemCount/ItemCount"
+import ItemList from "../Item/ItemList"
 
 const ItemListContainer = ({greeting}) => {
     return (
         <div>
             <h2 className="greeting">{greeting}</h2>
-            <ItemCount 
-            stockLimit={10} initial={1} 
-            />
+            
+            <ItemList />
         </div>
         
     )
