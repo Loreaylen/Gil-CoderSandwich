@@ -1,6 +1,7 @@
-import {BrowserRouter, Switch, Route} from "react-router-dom"
+import React from "react"
 import NavBar from "./components/Header/NavBar"
 import ItemListContainer from "./components/Body/ItemListContainer/ItemListContainer";
+import ItemDetailContainer from "./components/Body/ItemDetailContainer/ItemDetailContainer"
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
     menu={["INICIO", "PRODUCTOS", "LOCALES", "CONTACTO"]}
     />
     <ItemListContainer greeting="¡Bienvenido a Coder Sandwich!"/>
+    <ItemDetailContainer />
     </div>
   );
 }

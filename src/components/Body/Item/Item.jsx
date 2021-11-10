@@ -16,7 +16,6 @@ const Item = ({items}) => {
            <img src={items.imagen} alt={items.nombre} className="cardimg" />
        </div>
     <span className="precio">${items.precio}</span>
-   <p className="descripcion">{items.descripcion}</p>
     <ItemCount 
    stockLimit={10} initial={1} 
    />
