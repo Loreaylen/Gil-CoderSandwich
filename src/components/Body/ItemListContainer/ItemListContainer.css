@@ -4,3 +4,10 @@
     font-size: 36px;
 
 }
+
+.itemListContainer {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

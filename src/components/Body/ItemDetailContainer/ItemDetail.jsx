@@ -3,6 +3,7 @@ import ItemCount from "../ItemCount/ItemCount"
 import "../Item/Item.css"
 
 const ItemDetail = ({ item }) => {
+ 
 
     return (
         <div key={item?.id} className="contenedorCard">

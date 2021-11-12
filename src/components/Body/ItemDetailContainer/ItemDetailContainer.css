@@ -1,6 +1,7 @@
 .itemDetailContainer{
+    padding-top:10vh;
     width: 100%;
     display: flex;
-    align-items: stretch;
+    align-items: center;
     justify-content: center;
 }

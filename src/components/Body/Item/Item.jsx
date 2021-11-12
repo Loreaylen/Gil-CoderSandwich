@@ -1,11 +1,12 @@
 import React  from "react";
-import ItemCount from "../ItemCount/ItemCount"
+import { Link } from "react-router-dom";
 import "../Item/Item.css"
 
 
 
 const Item = ({items}) => {
 
+ 
 
   return(
    
@@ -16,9 +17,8 @@ const Item = ({items}) => {
            <img src={items.imagen} alt={items.nombre} className="cardimg" />
        </div>
     <span className="precio">${items.precio}</span>
-    <ItemCount 
-   stockLimit={10} initial={1} 
-   />
+    <Link to={`/detail/${items.id}`}><button className="verMas">Ver más</button></Link>
+
    </div>
 </li>
  

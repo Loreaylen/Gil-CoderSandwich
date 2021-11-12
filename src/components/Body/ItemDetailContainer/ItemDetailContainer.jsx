@@ -1,29 +1,28 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
+import { useParams } from "react-router";
 import products from "../../../products.json"
 import ItemDetail from "./ItemDetail"
 import "../ItemDetailContainer/ItemDetailContainer.css"
 
 
-
 const ItemDetailContainer = () => {
 
-
-
-    const getItem = new Promise ((resolve, reject) =>
-    setTimeout(() => resolve(products.products[0]), 2000)
-    )
+    const {id} = useParams()
 
     const [item, setItem] = useState([])
 
-    getItem.then(itemProducto => setItem(itemProducto))
+   useEffect(() => {
+    setItem(products.products.find(p => p.id === Number(id)))
+   }, [id])
+     
+   
 
-    
 
-return (
+    return (
         <div className="itemDetailContainer">
-            <ItemDetail item={item}/>
+            <ItemDetail item={item} />
         </div>
-)
+    )
 }
 
 
