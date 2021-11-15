@@ -10,12 +10,12 @@ const ItemDetailContainer = () => {
 
 
     const getItem = new Promise ((resolve, reject) =>
-    setTimeout(() => resolve(products.products[0]), 2000)
+    setTimeout(() => resolve(products.products), 2000)
     )
 
     const [item, setItem] = useState([])
 
-    getItem.then(itemProducto => setItem(itemProducto))
+    getItem.then(result => setItem(result.filter(item => item.id === id)))
 
     
 
