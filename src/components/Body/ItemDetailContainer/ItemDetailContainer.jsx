@@ -7,7 +7,7 @@ import "../ItemDetailContainer/ItemDetailContainer.css"
 
 const ItemDetailContainer = () => {
 
-
+    const id = 2
 
     const getItem = new Promise ((resolve, reject) =>
     setTimeout(() => resolve(products.products), 2000)
