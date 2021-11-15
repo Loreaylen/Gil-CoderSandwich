@@ -20,7 +20,7 @@ const Item = ({items}) => {
     <Link to={`/detail/${items.id}`}><button className="verMas">Ver más</button></Link>
 
    </div>
-</li>
+  </li>
  
   )
 }
