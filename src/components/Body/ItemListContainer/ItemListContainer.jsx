@@ -14,7 +14,7 @@ const [loading, setLoading] = useState(true)
     const itemLoaded  = useMemo(() =>  new Promise((resolve,reject) => {
         setTimeout(() => resolve(products.products), 2000)
         setLoading(true)
-    }), [listado])
+    }), [])
 
 
 const {categoryID} = useParams()
