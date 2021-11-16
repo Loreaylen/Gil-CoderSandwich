@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState,useMemo, useEffect} from "react";
 import products from "../../../products.json"
 import ItemDetail from "./ItemDetail"
 import "../ItemDetailContainer/ItemDetailContainer.css"
@@ -7,17 +7,15 @@ import "../ItemDetailContainer/ItemDetailContainer.css"
 
 const ItemDetailContainer = () => {
 
-    const id = 2
+    const id = 2 
 
-    const getItem = new Promise ((resolve, reject) =>
+    const getItem = useMemo(() =>  new Promise ((resolve, reject) =>
     setTimeout(() => resolve(products.products), 2000)
-    )
+    ), []);
 
     const [item, setItem] = useState([])
 
-    getItem.then(result => setItem(result.filter(item => item.id === id)))
-
-    
+useEffect(() => {getItem.then(result => setItem(result.find(item => item.id === id)))},[getItem])
 
 return (
         <div className="itemDetailContainer">

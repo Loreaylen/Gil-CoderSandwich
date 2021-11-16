@@ -3,9 +3,8 @@ import ItemCount from "../ItemCount/ItemCount"
 import "../Item/Item.css"
 
 const ItemDetail = ({ item }) => {
-
     return (
-        <div key={item?.id} className="contenedorCard">
+        <div key={item.id} className="contenedorCard">
             <div className="card">
                 <span className="nombre">{item.nombre}</span>
                 <div className="headerCard">
