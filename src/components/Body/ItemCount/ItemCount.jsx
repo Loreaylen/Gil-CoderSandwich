@@ -2,17 +2,17 @@ import React, {useState} from "react";
 import "../ItemCount/ItemCount.css"
 
 
-const ItemCount = ({stockLimit , initial}) => { 
+const ItemCount = ({stockLimit , initial, onAdd}) => { 
 const [contador, setContador] = useState(initial)
 
-const onAdd = () => {
+const add = () => {
     if(contador === stockLimit){
         return 
     }
     setContador(contador + 1)
 }
 
-const onSub =  () => {
+const sub =  () => {
     if(contador === 1){
         return 
     }
@@ -25,16 +25,16 @@ const onSub =  () => {
          <div className="btnContainer">
              <button 
              className={contador === 1 ? "disabled" : "active"}
-             onClick={() => onSub()}
+             onClick={() => sub()}
              >-</button>
              <span>{contador}</span>
              <button
              className={contador === 10 ? "disabled" : "active"}
-             onClick={() => onAdd()}
+             onClick={() => add()}
              >+</button>
          </div>
 
-        <button className="botonCarrito">Añadir al carrito</button>
+        <button className="botonCarrito" onClick={() => onAdd(contador)}>Añadir al carrito</button>
 
          </div>
     )
