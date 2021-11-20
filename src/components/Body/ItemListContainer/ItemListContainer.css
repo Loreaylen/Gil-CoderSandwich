@@ -1,0 +1,13 @@
+.greeting {
+    text-align: center;
+    font-family: 'Jura', sans-serif;
+    font-size: 36px;
+
+}
+
+.itemListContainer {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

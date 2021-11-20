@@ -11,17 +11,19 @@ nav {
     display: flex;
     flex-direction: row;
     align-items: center;
+    
 }
 
 h1 {
     width: 110px;
     color: white;
     font-family: 'Jura', sans-serif;
+    text-decoration: none;
 }
 
 .logo {
-    width: 95px;
-    height: 95px;
+    width: 78px;
+    height: 78px;
     
 }
 
