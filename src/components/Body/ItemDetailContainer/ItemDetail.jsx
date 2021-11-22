@@ -1,14 +1,25 @@
-import React, {useState} from "react"
+import React, {useState, useContext} from "react"
+import {AppContext} from "../../Context/CartContext"
 import {Link} from "react-router-dom"
 import ItemCount from "../ItemCount/ItemCount"
 import "../Item/Item.css"
 
 const ItemDetail = ({ item }) => {
 
-  const  [value, setValue] = useState(false)
+  const  [value, setValue] = useState(1)
+
+  const  [isBuying, setIsBuying] = useState(false)
+
+  const {addItem} = useContext(AppContext)
 
     const handleAdd = (cantidad) => {
        setValue(cantidad)
+       delete item.categoria
+       item.cantidad = cantidad
+       item.precioTotal = item.precio * item.cantidad
+       addItem({...item})
+       setIsBuying(true)
+
     }
 
 
@@ -23,7 +34,7 @@ const ItemDetail = ({ item }) => {
                 <span className="precio">${item.precio}</span>
                 <p className="descripcion">{item.descripcion}</p>
                 <span className="descripcion">{item.categoria}</span>
-                {value === false 
+                {isBuying === false 
                 
                 ?  <ItemCount
                     stockLimit={10} initial={1} onAdd={handleAdd}

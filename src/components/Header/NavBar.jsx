@@ -9,6 +9,7 @@ import Input from '@mui/material/Input';
 
 const NavBar = () => {
 
+
     return (
         <header className="NavBar">
             <nav>
