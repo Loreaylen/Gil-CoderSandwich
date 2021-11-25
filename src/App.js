@@ -1,6 +1,7 @@
 import React from "react"
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import CartContext from "./components/Context/CartContext";
+import Cart from "../src/components/Body/Cart/Cart.jsx"
 import NavBar from "./components/Header/NavBar"
 import ItemListContainer from "./components/Body/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/Body/ItemDetailContainer/ItemDetailContainer"
@@ -19,7 +20,7 @@ function App() {
             <ItemListContainer greeting="Productos" />
           </Route>
           <Route exact path="/detail/:id" component={ItemDetailContainer} />
-          <Route exact path="/cart" />
+          <Route exact path="/cart" component={Cart}/>
         </Switch>
       </BrowserRouter>
       </CartContext>

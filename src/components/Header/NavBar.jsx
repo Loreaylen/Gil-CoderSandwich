@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.css"
 import CartWidget from "./CartWidget"
+import {AppContext} from "../Context/CartContext"
 import logo from "./logoSanguche.png"
 import SearchIcon from '@mui/icons-material/Search';
 import Input from '@mui/material/Input';
@@ -9,6 +10,7 @@ import Input from '@mui/material/Input';
 
 const NavBar = () => {
 
+const {carrito, totalItems} = useContext(AppContext)
 
     return (
         <header className="NavBar">
@@ -30,7 +32,11 @@ const NavBar = () => {
                         <Link to="/" style={{ textDecoration: 'none' }}><li key={3}>CONTACTO</li></Link>
                     
                 </ul>
+                <div className="cartContainer">
+                <Link to="/cart">   
                 <CartWidget />
+                <span className="totalItems"  >{totalItems === 0 ? "" : totalItems}</span>
+                </Link> </div>
             </nav>
         </header>
     );

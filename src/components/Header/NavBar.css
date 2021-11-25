@@ -79,10 +79,31 @@ h1 {
 .lupa, .carrito {
     color:#81AC49;
     cursor: pointer;
+    position:relative;
 }
 
 .lupa {
     position:absolute;
     right: 4px;
 ;
+}
+
+.totalItems {
+    position:absolute;
+    text-align: center;
+    vertical-align: center;
+    height:16px;
+    width: 15px;
+    border-radius: 15px;
+    right: -4px;
+    bottom: -1px;
+    font-size: 15px;
+    color: white;
+    text-decoration-line: none;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.cartContainer {
+    width: 25px;
+    position:relative;
 }

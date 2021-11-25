@@ -2,32 +2,57 @@ import React, {createContext, useState} from "react"
 
 export const AppContext = createContext()
 
-const Context = ({children}) => {
+const Context = ({ children }) => {
 
-const [carrito, setCarrito] = useState([])
+   const [carrito, setCarrito] = useState([])
 
-const addItem = (product) => {
-   const isInCart = carrito.find(x => x.id === product.id)
-  
+   const [totalItems, setTotalItems] = useState(0)
 
-   if(typeof isInCart !== "undefined") {
-      isInCart.cantidad += product.cantidad
-      isInCart.precioTotal = isInCart.precio * isInCart.cantidad
-      setCarrito([ ...new Set([...carrito, isInCart]) ]
-      )
-return;
+   const [total, setTotal] = useState(0)
+
+   const addItem = (product) => {
+      const isInCart = carrito.find(x => x.id === product.id)
+
+
+
+      if (typeof isInCart !== "undefined") {
+         isInCart.cantidad += product.cantidad
+         isInCart.precioTotal = isInCart.precio * isInCart.cantidad
+         setCarrito([...new Set([...carrito, isInCart])])
+         setTotalItems(totalItems + isInCart.cantidad)
+         setTotal(total + isInCart.precioTotal)
+         return;
+      }
+
+      setCarrito([...carrito, product])
+      setTotalItems(totalItems + product.cantidad)
+      setTotal(total + product.precioTotal)
+
    }
-   setCarrito([...carrito, product])
 
-}
+   const removeItem = (item) => {
+      const removed = carrito.filter(x => x.id !== item.id)
+      setCarrito(removed)
+      setTotalItems(totalItems - item.cantidad)
+      setTotal(total - item.precioTotal)
+   }
 
-// const removeItem = (productId) => {
-//    const removed = carrito.filter(x => x.id !== productId)
-//    setCarrito(removed)
-// }
+   const clear = () => {
+      setCarrito([])
+      setTotalItems(0)
+      setTotal(0)
+   }
+
+
 
 const contextValue = {
-   addItem: addItem
+   addItem: addItem,
+   removeItem: removeItem,
+   clear: clear,
+   carrito: carrito,
+   totalItems: totalItems,
+   totalPrecio: total
+
 }
 
 return(
