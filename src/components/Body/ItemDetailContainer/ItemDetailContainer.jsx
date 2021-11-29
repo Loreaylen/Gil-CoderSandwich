@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { useParams } from "react-router";
-import products from "../../../products.json"
+import {getFirestore} from "../../../service/getFirestore"
 import ItemDetail from "./ItemDetail"
 import "../ItemDetailContainer/ItemDetailContainer.css"
 
@@ -9,10 +9,16 @@ const ItemDetailContainer = () => {
 
     const {id} = useParams()
 
-    const [item, setItem] = useState([])
+    const [item, setItem] = useState({})
 
    useEffect(() => {
-    setItem(products.products.find(p => p.id === Number(id)))
+    const dataBase = getFirestore()
+
+    dataBase.collection("products").doc(id).get()
+   .then(resp => setItem({id: resp.id, ...resp.data()}))
+
+    
+    
    }, [id])
      
    

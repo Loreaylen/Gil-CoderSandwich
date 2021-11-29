@@ -29,7 +29,7 @@ if(carrito.length === 0) {
            <tbody>  
             {carrito?.map(item => 
             <tr key={item.id}>
-                <td><img src={item.imagen} alt="" /></td>
+                <td><img src={item.imagenUrl} alt="" /></td>
                 <td>{item.nombre}</td>
                 <td>{item.cantidad}</td>
                 <td>${item.precioTotal}</td>

@@ -29,7 +29,7 @@ const ItemDetail = ({ item }) => {
             <div className="card">
                 <span className="nombre">{item.nombre}</span>
                 <div className="headerCard">
-                    <img src={item.imagen} alt={item.nombre} className="cardimg" />
+                    <img src={item.imagenUrl} alt={item.nombre} className="cardimg" />
                 </div>
                 <span className="precio">${item.precio}</span>
                 <p className="descripcion">{item.descripcion}</p>
@@ -37,7 +37,7 @@ const ItemDetail = ({ item }) => {
                 {isBuying === false 
                 
                 ?  <ItemCount
-                    stockLimit={10} initial={1} onAdd={handleAdd}
+                    stockLimit={item.stock} initial={1} onAdd={handleAdd}
                 />
                 :<Link to="/cart"><button className="irAlCarrito">Ir al carrito</button></Link>
                 
