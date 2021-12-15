@@ -10,10 +10,18 @@ const Context = ({ children }) => {
 
    const [total, setTotal] = useState(0)
 
+   const [obj, setObj] = useState({})
+
+   const [name, setName] = useState("")
+
+   const [mail, setMail] = useState("")
+
+   const [repMail, setRepmail] = useState("")
+
+   const [tel, setTel] = useState("")
+
    const addItem = (product) => {
       const isInCart = carrito.find(x => x.id === product.id)
-
-
 
       if (typeof isInCart !== "undefined") {
          isInCart.cantidad += product.cantidad
@@ -51,7 +59,17 @@ const contextValue = {
    clear: clear,
    carrito: carrito,
    totalItems: totalItems,
-   totalPrecio: total
+   totalPrecio: total,
+   obj: obj,
+   setObj: setObj,
+   name: name,
+   setName: setName,
+   mail: mail,
+   setMail: setMail,
+   repMail: repMail,
+   setRepmail: setRepmail,
+   tel: tel,
+   setTel: setTel
 
 }
 

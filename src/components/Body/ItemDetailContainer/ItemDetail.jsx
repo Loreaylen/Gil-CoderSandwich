@@ -39,8 +39,9 @@ const ItemDetail = ({ item }) => {
                 ?  <ItemCount
                     stockLimit={item.stock} initial={1} onAdd={handleAdd}
                 />
-                :<Link to="/cart"><button className="irAlCarrito">Ir al carrito</button></Link>
-                
+                :<div className="btnCtn"><Link to="/cart"><button className="irAlCarrito">Ir al carrito</button></Link>
+                <Link to="/"><button className="seguirComprando">Seguir comprando</button></Link>
+                </div>
                  }
                 
             </div>

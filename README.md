@@ -10,3 +10,4 @@ Librerías utilizadas:
 
 - react-router-dom: Se utilizó la versión 5.3.0
 
+- react-hook-form: Versión 7.22.0

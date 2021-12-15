@@ -47,7 +47,17 @@
     font-size: 13px;
 }
 
-.verMas, .irAlCarrito {
+.btnCtn {
+    width: 100%;
+    height: 150px;
+    display:flex;
+    flex-direction: column;
+    row-gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.verMas {
     height: 50px;
     width: 200px;
     background-color:#81AC49 ;
@@ -61,7 +71,40 @@
 
 }
 
-.verMas:hover {
+.irAlCarrito {
+    background-color:#81AC49 ;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Jura', sans-serif;
+    font-size: 16px;
+    color:white;
+    cursor:pointer;
+    transition: all .2s linear;  
+
+}
+
+.seguirComprando {
+    background-color: white;
+    color:#81AC49 ;
+    border: 1px solid #81AC49;
+    font-family: 'Jura', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all .2s linear;  
+}
+
+.irAlCarrito, .seguirComprando {
+    height: 50px;
+    width: 200px;
+}
+
+.verMas:hover, .irAlCarrito:hover {
 background-color: green;
  
+}
+
+.seguirComprando:hover {
+ border-color: green;
+ color: green;
+ background-color: rgb(249, 250, 248);
 }
