@@ -1,0 +1,52 @@
+.register {
+    margin: auto;
+    height: 50%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+input {
+    height: 30px;
+}
+
+.loginCtn {
+    width: 30%;
+    margin: auto;
+    padding-top:50px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.iniciarSesion {
+    text-align: center;
+    font-family: "Jura";
+    font-weight: 600;
+}
+
+.loginLabel {
+  position: relative;
+  top:10px;
+  text-align: center;
+  font-family: "Jura";
+}
+
+.loginInput {
+    width: 50%;
+    margin: auto;
+}
+
+.iniciarBtn {
+    width: 20%;
+    margin: auto;
+}
+
+.noTienesCuenta {
+    text-align: center;
+    position:relative;
+    top: 30px;
+}

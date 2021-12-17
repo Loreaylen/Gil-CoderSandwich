@@ -2,20 +2,29 @@ import React, {useContext} from "react"
 import { Link } from "react-router-dom";
 import Form from "../Form/Form"
 import {AppContext} from "../../Context/CartContext"
+import { AppUserContext } from "../../Context/UserContext";
 import {getFirestore} from "../../../service/getFirestore"
 import "../Cart/Cart.css"
 
-const Cart = ({setIsopen}) => {
 
-    const {carrito, totalPrecio, removeItem, clear, setObj, name, setName, mail, setMail, repMail, setRepmail, tel, setTel} = useContext(AppContext) 
+const Cart = ({setIsopen, isLogged}) => {
 
+const {carrito, totalPrecio, removeItem, clear, setObj, name, setName, mail, setMail, setRepmail, tel, setTel} = useContext(AppContext) 
+
+const {user} = useContext(AppUserContext)
 
 
 const generateOrder = () => {
    
     const order = {}
-
+    if(isLogged){
+        order.buyer = {nombre: user.displayName, email: user.email, tel: ""}
+    }
+    else{
     order.buyer = {nombre: name, email: mail, tel: tel}
+    }
+
+
     order.total = totalPrecio
     order.items = carrito.map(cartItem => {
         const id= cartItem.id
@@ -78,8 +87,14 @@ if(carrito.length === 0) {
         </tbody>
       
        </table>
-
-        <Form generateOrder={generateOrder}/>
+        {isLogged 
+        ? <div className="infoCompra"> 
+            <span>Se enviará la información de la compra a: {user?.email}</span> 
+            <button className="finalizarCompra" onClick={() => generateOrder()}>Terminar mi compra</button>
+            </div>
+        : <Form generateOrder={generateOrder}/>
+        }
+        
 
        </div> 
     )

@@ -38,6 +38,8 @@ useEffect(() => {
             
 }, [ categoryID])
 
+
+
  return (
         <div className="itemListContainer">
              
@@ -46,7 +48,9 @@ useEffect(() => {
 
             <Loading/>
             
-            <ItemList listaProductos={listado}/>
+            
+                <ItemList listaProductos={listado}/>
+            
                
         </div>
         

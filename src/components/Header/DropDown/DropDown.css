@@ -1,0 +1,24 @@
+.dropCtn {
+    border: 1px solid grey;
+    background-color: white;
+    border-radius: 5px;
+    height: 150px;
+    width: 18%;
+    padding: 20px 0 20px 0;
+    position: absolute;
+    top: 90px;
+    right:5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.currentName{
+    font-size: 20px;
+}
+
+.currentEmail{
+    position:absolute;
+    top:45px;
+}

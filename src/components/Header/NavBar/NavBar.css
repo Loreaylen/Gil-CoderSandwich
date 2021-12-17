@@ -1,3 +1,6 @@
+
+
+
 nav {
     background-color: #363734;
     height: 11vh;
@@ -42,7 +45,29 @@ h1 {
         padding: 10px;
 }
 
-.listaMenu li:hover {
+.ingresar, .nombreDeUsuario{
+    color:white;
+    font-size: 15px;
+}
+
+.userIcon {
+    color: white;
+    padding: 2px;
+}
+
+.userCtn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.nombreDeUsuario:hover {
+    font-weight: 600;
+}
+
+.listaMenu li:hover, .ingresar:hover {
     animation: hover 0.3s;
     animation-fill-mode: forwards;
     cursor: pointer;
@@ -107,3 +132,5 @@ h1 {
     width: 25px;
     position:relative;
 }
+
+

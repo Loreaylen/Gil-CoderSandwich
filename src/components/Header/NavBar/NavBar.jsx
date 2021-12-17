@@ -1,21 +1,28 @@
 import React, {useContext} from "react";
 import { Link } from "react-router-dom";
+import DropDown from "../DropDown/DropDown.jsx"
 import "./NavBar.css"
-import CartWidget from "./CartWidget"
-import {AppContext} from "../Context/CartContext"
-import logo from "./logoSanguche.png"
+import CartWidget from "../CartWidget/CartWidget"
+import {AppContext} from "../../Context/CartContext"
+import {AppUserContext} from "../../Context/UserContext"
+import logo from "../logoSanguche.png"
 import SearchIcon from '@mui/icons-material/Search';
 import Input from '@mui/material/Input';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 
-const NavBar = () => {
+const NavBar = ({isLogged, setIslogged}) => {
 
-const {carrito, totalItems} = useContext(AppContext)
+const { totalItems} = useContext(AppContext)
+
+const {toggle, setToggle, user} = useContext(AppUserContext)
+
 
     return (
         <header className="NavBar">
             <nav>
-            <Link to="/" style={{ textDecoration: 'none' }} ><div className="contenedor">
+            <Link to="/" style={{ textDecoration: 'none' }} >
+            <div className="contenedor">
              <img src={logo} className="logo" alt="Logo"></img>
              <h1>Coder Sandwich</h1>
                         
@@ -37,7 +44,21 @@ const {carrito, totalItems} = useContext(AppContext)
                 <CartWidget />
                 <span className="totalItems"  >{totalItems === 0 ? "" : totalItems}</span>
                 </Link> </div>
+            
+                <div>
+                {isLogged 
+                ? <div className="userCtn" onClick={() => setToggle(!toggle)}>
+                <AccountCircleIcon className="userIcon"></AccountCircleIcon><span className="nombreDeUsuario">{user?.displayName.toUpperCase()}</span>
+                </div> 
+                : <Link to="/authentication" style={{textDecoration: "none"}}><span className="ingresar">INGRESAR</span> </Link> }
+                
+            </div>
+            
+            
             </nav>
+
+           {toggle && <DropDown setIslogged={setIslogged}/>}
+
         </header>
     );
 }

@@ -4,8 +4,8 @@
     flex-direction: column;
     align-items: center;
     row-gap: 20px;
-    justify-content: center;
-    padding-top: 50px;
+    justify-content: space-evenly;
+    padding-top: 20px;
 
 }
 
@@ -58,4 +58,17 @@ button {
 .totalCell {
     column-span: all;
     
+}
+
+.infoCompra {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.finalizarCompra {
+    background-color: red;
 }
