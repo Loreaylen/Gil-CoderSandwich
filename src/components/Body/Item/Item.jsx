@@ -6,7 +6,7 @@ import "../Item/Item.css"
 
 const Item = ({items}) => {
 
- 
+
 
   return(
    
@@ -14,7 +14,7 @@ const Item = ({items}) => {
     <div className= "card">
     <span className="nombre">{items.nombre}</span>
         <div className="headerCard">
-           <img src={items.imagen} alt={items.nombre} className="cardimg" />
+           <img src={items.imagenUrl} alt={items.nombre} className="cardimg" />
        </div>
     <span className="precio">${items.precio}</span>
     <Link to={`/detail/${items.id}`}><button className="verMas">Ver más</button></Link>
