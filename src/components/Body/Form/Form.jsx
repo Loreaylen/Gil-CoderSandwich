@@ -1,24 +1,18 @@
-import React, {Fragment, useContext, useState} from "react"
+import React, {Fragment, useState} from "react"
 import {useForm} from "react-hook-form"
-import {AppContext} from "../../Context/CartContext"
 import "../Form/Form.css"
 
 
 const Form = ({generateOrder}) => {
 
-const { setName, setMail, setTel} = useContext(AppContext)
-
 const [error, setError] = useState(false)
 
 const {register, formState: {errors}, handleSubmit, getValues} = useForm()
-const onSubmit = (data) => {
+const onSubmit = (data, e) => {
    
     if(getValues("mail") === getValues("repMail")){
-        setName(data.name)
-        setMail(data.mail)
-        setTel(data.tel)
-        generateOrder()
-        
+       
+        generateOrder(data.name, data.mail, data.tel)
         return setError(false)
         
     }

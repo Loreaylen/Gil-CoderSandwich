@@ -6,7 +6,7 @@ import "../Item/Item.css"
 
 const ItemDetail = ({ item }) => {
 
-  const  [value, setValue] = useState(1)
+  const  [, setValue] = useState(1)
 
   const  [isBuying, setIsBuying] = useState(false)
 
@@ -37,8 +37,8 @@ const ItemDetail = ({ item }) => {
                 {isBuying === false 
                 
                 ?  <ItemCount
-                    stockLimit={item.stock} initial={1} onAdd={handleAdd}
-                />
+                    stockLimit={item.stock} initial={1} onAdd={handleAdd}/>
+                    
                 :<div className="btnCtn"><Link to="/cart"><button className="irAlCarrito">Ir al carrito</button></Link>
                 <Link to="/"><button className="seguirComprando">Seguir comprando</button></Link>
                 </div>

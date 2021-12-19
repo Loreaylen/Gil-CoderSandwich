@@ -19,7 +19,7 @@ onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser)
     setIslogged(true)
     }
-    else {alert("Usuario desconectado")}
+    else {console.log("Usuario desconectado")}
 })
 
 

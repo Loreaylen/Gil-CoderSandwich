@@ -9,7 +9,7 @@ const ItemListContainer = ({greeting}) =>{
 
     
 const [listado, setListado] = useState([])
-const [loading, setLoading] = useState(true)
+const [, setLoading] = useState(true)
 
     
     const dataBase = useMemo(() => {
@@ -36,7 +36,7 @@ useEffect(() => {
 
             }
             
-}, [ categoryID])
+}, [ categoryID, dataBase])
 
 
 

@@ -9,6 +9,7 @@ import NavBar from "./components/Header/NavBar/NavBar.jsx"
 import ItemListContainer from "./components/Body/ItemListContainer/ItemListContainer.jsx";
 import ItemDetailContainer from "./components/Body/ItemDetailContainer/ItemDetailContainer"
 import Modal from "../src/components/Modal/Modal.jsx"
+import NotFound from "../src/components/NotFound.jsx"
 
 function App() {
 
@@ -44,6 +45,8 @@ function App() {
           <Route exact path="/newuser">
           {isLogged ? <Redirect to="/"/> : <NewUser setIslogged={setIslogged} />} 
           </Route>
+
+          <Route path="/detail/*" component={NotFound}/>
         </Switch>
       </BrowserRouter>
       <Modal show={isOpen} handleClose= {setIsopen} />

@@ -9,19 +9,20 @@ import "../Cart/Cart.css"
 
 const Cart = ({setIsopen, isLogged}) => {
 
-const {carrito, totalPrecio, removeItem, clear, setObj, name, setName, mail, setMail, setRepmail, tel, setTel} = useContext(AppContext) 
+const {carrito, totalPrecio, removeItem, clear, setObj,} = useContext(AppContext) 
 
 const {user} = useContext(AppUserContext)
 
 
-const generateOrder = () => {
+const generateOrder = (nm, ml, tl) => {
    
     const order = {}
+
     if(isLogged){
         order.buyer = {nombre: user.displayName, email: user.email, tel: ""}
     }
     else{
-    order.buyer = {nombre: name, email: mail, tel: tel}
+    order.buyer = {nombre: nm, email: ml, tel: tl}
     }
 
 
@@ -39,12 +40,9 @@ const generateOrder = () => {
     .then(resp => setObj({orderID:resp.id, order:order}))
     .catch(err => console.log(err))
     .finally( 
-        setName(""),
-        setMail(""),
-        setRepmail(""),
-        setTel(""))
-        clear()
-        setIsopen(true)
+        clear(),
+        setIsopen(true),
+        console.log(order))
 }
  
 if(carrito.length === 0) {
@@ -87,6 +85,8 @@ if(carrito.length === 0) {
         </tbody>
       
        </table>
+
+
         {isLogged 
         ? <div className="infoCompra"> 
             <span>Se enviará la información de la compra a: {user?.email}</span> 

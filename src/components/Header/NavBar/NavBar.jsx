@@ -6,8 +6,6 @@ import CartWidget from "../CartWidget/CartWidget"
 import {AppContext} from "../../Context/CartContext"
 import {AppUserContext} from "../../Context/UserContext"
 import logo from "../logoSanguche.png"
-import SearchIcon from '@mui/icons-material/Search';
-import Input from '@mui/material/Input';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 
@@ -16,6 +14,8 @@ const NavBar = ({isLogged, setIslogged}) => {
 const { totalItems} = useContext(AppContext)
 
 const {toggle, setToggle, user} = useContext(AppUserContext)
+
+
 
 
     return (
@@ -28,15 +28,12 @@ const {toggle, setToggle, user} = useContext(AppUserContext)
                         
                 </div>
                 </Link>
-                <div className="buscador">
-                    <Input type="text" placeholder="Buscar" disableUnderline={true} />
-                    <SearchIcon className="lupa" />
-                </div>
+               
                 <ul className="listaMenu">
                         <Link to="/" style={{ textDecoration: 'none' }}><li key={0}>INICIO</li></Link> 
                         <Link to="/categories/baguette" style={{ textDecoration: 'none' }}><li key={1}>BAGUETTES</li></Link>
                         <Link to="/categories/miga" style={{ textDecoration: 'none' }}><li key={2}>MIGA</li></Link> 
-                        <Link to="/" style={{ textDecoration: 'none' }}><li key={3}>CONTACTO</li></Link>
+                       
                     
                 </ul>
                 <div className="cartContainer">
@@ -48,7 +45,7 @@ const {toggle, setToggle, user} = useContext(AppUserContext)
                 <div>
                 {isLogged 
                 ? <div className="userCtn" onClick={() => setToggle(!toggle)}>
-                <AccountCircleIcon className="userIcon"></AccountCircleIcon><span className="nombreDeUsuario">{user?.displayName.toUpperCase()}</span>
+                <AccountCircleIcon className="userIcon"></AccountCircleIcon><span className="nombreDeUsuario">{user?.displayName?.toUpperCase()}</span>
                 </div> 
                 : <Link to="/authentication" style={{textDecoration: "none"}}><span className="ingresar">INGRESAR</span> </Link> }
                 

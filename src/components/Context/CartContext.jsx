@@ -1,5 +1,5 @@
-import React, {createContext, useState} from "react"
-
+import React, {createContext, useState,useEffect} from "react"
+import { getFirestore } from "../../service/getFirestore"
 export const AppContext = createContext()
 
 const Context = ({ children }) => {
@@ -17,7 +17,7 @@ const Context = ({ children }) => {
    const [mail, setMail] = useState("")
 
    const [repMail, setRepmail] = useState("")
-
+   const [allID,setAllID] = useState([])
    const [tel, setTel] = useState("")
 
    const addItem = (product) => {
@@ -51,8 +51,13 @@ const Context = ({ children }) => {
       setTotal(0)
    }
 
-
-
+   useEffect(() => {
+      const dataBase = getFirestore()
+      dataBase.collection("products").get()
+      .then(data => setAllID(data.docs.map(prod => ( prod.id ))) )
+      
+     }, [])
+       
 const contextValue = {
    addItem: addItem,
    removeItem: removeItem,
@@ -69,8 +74,8 @@ const contextValue = {
    repMail: repMail,
    setRepmail: setRepmail,
    tel: tel,
-   setTel: setTel
-
+   setTel: setTel,
+   allID : allID
 }
 
 return(
