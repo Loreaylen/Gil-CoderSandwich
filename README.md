@@ -1,4 +1,4 @@
-Coder Sandwich
+<h1>Coder Sandwich</h1>
 
 Proyecto de eccomerce orientado a la venta de sanguches. La página está compuesta de un home que contiene un listado de productos y un navbar que te permite filtrar los mismos por categoría, iniciar sesión o ir al carrito. 
 La tarjeta de cada producto contiene un botón de "ver más" que al clickearlo despliega una vista detallada del mismo. Desde aquí se puede modificar la cantidad de productos que se desea agregar al carrito. Una vez añadidos, se puede ir al carrito o seguir comprando. Al ingresar un ID inválido en el link se mostrará un mensaje indicando que el producto no existe.
@@ -7,7 +7,7 @@ Por último, el botón "ingresar" conduce a un formulario de inicio de sesión, 
 Tanto para el formulario del carrito como el de registro se implementó la dependencia react-hook-form.
 
 
-Librerías utilizadas:
+<h2>Librerías utilizadas:</h2>
 
 - @mui/icons-material: Librería de iconos de los cuales se utilizaron: El carrito para el cart, la bolsa que aparece en el modal y el icono del usuario.
 
@@ -16,3 +16,13 @@ Librerías utilizadas:
 - react-router-dom: Se utilizó la versión 5.3.0
 
 - react-hook-form: Versión 7.22.0
+
+<h2>DEMO del sitio:</h2>
+https://proyectofinal-coder-sandwich.netlify.app/
+
+<h2>Datos para testear:</h2>
+Si desea testear el inicio de sesión, puede utilizar el siguiente usuario o crear uno nuevo:
+
+Email: lag9512@gmail.com 
+<br>
+Contraseña: Lag9512.123
