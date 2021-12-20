@@ -13,7 +13,7 @@ const NavBar = ({isLogged, setIslogged}) => {
 
 const { totalItems} = useContext(AppContext)
 
-const {toggle, setToggle, user} = useContext(AppUserContext)
+const {toggle, setToggle, user,userProv} = useContext(AppUserContext)
 
 
 
@@ -45,7 +45,8 @@ const {toggle, setToggle, user} = useContext(AppUserContext)
                 <div>
                 {isLogged 
                 ? <div className="userCtn" onClick={() => setToggle(!toggle)}>
-                <AccountCircleIcon className="userIcon"></AccountCircleIcon><span className="nombreDeUsuario">{user?.displayName?.toUpperCase()}</span>
+                <AccountCircleIcon className="userIcon"></AccountCircleIcon><span className="nombreDeUsuario">
+                    {userProv || user?.displayName?.toUpperCase()}</span>
                 </div> 
                 : <Link to="/authentication" style={{textDecoration: "none"}}><span className="ingresar">INGRESAR</span> </Link> }
                 

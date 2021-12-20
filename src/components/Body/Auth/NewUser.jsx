@@ -2,11 +2,13 @@ import React, {Fragment, useRef, useContext} from "react"
 import { AppUserContext } from "../../Context/UserContext.jsx"
 import {auth} from "../../../service/getFirestore"
 import { useForm } from "react-hook-form"
+import { createUserWithEmailAndPassword, updateProfile  } from "firebase/auth"
+
 import "../Auth/Auth.css"
 
 const NewUser = ({setIslogged}) => {
 
-    const {setReguser, setRegmail, setRegpass, registerUser, updateName} = useContext(AppUserContext)
+    const {setUserProv} = useContext(AppUserContext)
 
 const {register, formState: {errors}, handleSubmit, watch} = useForm()
 
@@ -15,14 +17,12 @@ const {register, formState: {errors}, handleSubmit, watch} = useForm()
 const password = useRef({})
 password.current = watch("pass", "");
 
-const onSubmit = (data) => {
-    console.log(data)
-    setReguser(data.name)
-    setRegmail(data.email)
-    setRegpass(data.pass)
-    registerUser(setIslogged)
-    updateName()
-    console.log(auth.currentUser)
+const onSubmit = async (data) => {
+    setUserProv(data.name)
+  const user = await  createUserWithEmailAndPassword(auth, data.email, data.pass)
+  if(user?.user?.email) {
+        return await updateProfile(auth.currentUser, {displayName: data.name})
+    }
 }
 
     return(

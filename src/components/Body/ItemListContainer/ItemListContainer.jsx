@@ -35,7 +35,7 @@ useEffect(() => {
             .finally(() => setLoading(false))
 
             }
-            
+            return () => setListado([])
 }, [ categoryID, dataBase])
 
 

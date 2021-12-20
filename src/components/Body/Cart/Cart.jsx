@@ -41,8 +41,7 @@ const generateOrder = (nm, ml, tl) => {
     .catch(err => console.log(err))
     .finally( 
         clear(),
-        setIsopen(true),
-        console.log(order))
+        setIsopen(true))
 }
  
 if(carrito.length === 0) {
