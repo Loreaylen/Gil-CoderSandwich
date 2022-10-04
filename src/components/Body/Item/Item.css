@@ -1,110 +1,103 @@
 .contenedorLista {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    row-gap: 20px;
-    column-gap: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 20px;
+  column-gap: 20px;
 }
 
 .contenedorCard {
-    list-style-type: none;
+  list-style-type: none;
 }
 
-
-
 .card {
-    height: 55vh;
-    width: 400px;
-    border: 1px solid black;
-    border-radius: 15px;
-    padding-bottom: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    
-
+  height: 55vh;
+  width: 400px;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .headerCard {
-    width: 100%;
-    height:220px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  height:220px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 .cardimg {
-    width: 70%;
-    height: auto;
+  width: 70%;
+  height: auto;
 }
 
 .descripcion {
-    text-align: center;
-    width: 100%;
-    height: 30px;
-    font-size: 13px;
+  text-align: center;
+  width: 100%;
+  height: 30px;
+  font-size: 13px;
 }
 
 .btnCtn {
-    width: 100%;
-    height: 150px;
-    display:flex;
-    flex-direction: column;
-    row-gap: 15px;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 150px;
+  display:flex;
+  flex-direction: column;
+  row-gap: 15px;
+  justify-content: center;
+  align-items: center;
 }
 
 .verMas {
-    height: 50px;
-    width: 200px;
-    background-color:#81AC49 ;
-    border: none;
-    border-radius: 5px;
-    font-family: 'Jura', sans-serif;
-    font-size: 16px;
-    color:white;
-    cursor:pointer;
-    transition: all .2s linear;   
-
+  height: 50px;
+  width: 200px;
+  background-color:#81AC49 ;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Jura', sans-serif;
+  font-size: 16px;
+  color:white;
+  cursor:pointer;
+  transition: all .2s linear;
 }
 
 .irAlCarrito {
-    background-color:#81AC49 ;
-    border: none;
-    border-radius: 5px;
-    font-family: 'Jura', sans-serif;
-    font-size: 16px;
-    color:white;
-    cursor:pointer;
-    transition: all .2s linear;  
-
+  background-color:#81AC49 ;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Jura', sans-serif;
+  font-size: 16px;
+  color:white;
+  cursor:pointer;
+  transition: all .2s linear;
 }
 
 .seguirComprando {
-    background-color: white;
-    color:#81AC49 ;
-    border: 1px solid #81AC49;
-    font-family: 'Jura', sans-serif;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all .2s linear;  
+  background-color: white;
+  color:#81AC49 ;
+  border: 1px solid #81AC49;
+  font-family: 'Jura', sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all .2s linear;
 }
 
 .irAlCarrito, .seguirComprando {
-    height: 50px;
-    width: 200px;
+  height: 50px;
+  width: 200px;
 }
 
 .verMas:hover, .irAlCarrito:hover {
-background-color: green;
- 
+  background-color: green;
 }
 
 .seguirComprando:hover {
- border-color: green;
- color: green;
- background-color: rgb(249, 250, 248);
+  border-color: green;
+  color: green;
+  background-color: rgb(249, 250, 248);
 }

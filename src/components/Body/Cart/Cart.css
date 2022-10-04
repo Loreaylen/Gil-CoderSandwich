@@ -1,74 +1,70 @@
 .cartBody {
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 20px;
-    justify-content: space-evenly;
-    padding-top: 20px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+  justify-content: space-evenly;
+  padding-top: 20px;
 
 }
 
 .noItems {
-    width: 100%;
-    padding-top: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
+  width: 100%;
+  padding-top: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
 }
 
 .noItems h4 {
-    color: grey;
+  color: grey;
 }
 
 table {
-    border: 1px solid black;
-    table-layout: fixed;
-    width: 95%;
-    border-collapse: collapse;
-    text-align: center;
-    font-family: 'Jura', sans-serif;
-
+  border: 1px solid black;
+  table-layout: fixed;
+  width: 95%;
+  border-collapse: collapse;
+  text-align: center;
+  font-family: 'Jura', sans-serif;
 }
 
 thead {
-    background-color: #363734;
-    height: 50px;
-    color:white;
+  background-color: #363734;
+  height: 50px;
+  color:white;
 }
 
-
 tbody td img {
-    height: auto;
-    width: 70px;
+  height: auto;
+  width: 70px;
 }
 
 button {
-    background-color: black;
-    color:white;
-    padding: 10px;
-    border:none;
-    border-radius: 5px;
-    font-family: 'Jura', sans-serif;
+  background-color: black;
+  color:white;
+  padding: 10px;
+  border:none;
+  border-radius: 5px;
+  font-family: 'Jura', sans-serif;
 }
 
-
 .totalCell {
-    column-span: all;
-    
+  column-span: all;
 }
 
 .infoCompra {
-    padding-top: 30px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 30px;
-    justify-content: center;
-    align-items: center;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  justify-content: center;
+  align-items: center;
 }
 
 .finalizarCompra {
-    background-color: red;
+  background-color: red;
 }

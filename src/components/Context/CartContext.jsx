@@ -1,89 +1,82 @@
-import React, {createContext, useState,useEffect} from "react"
-import { getFirestore } from "../../service/getFirestore"
-export const AppContext = createContext()
+import React, {createContext, useState,useEffect} from "react";
+import { getFirestore } from "../../service/getFirestore";
+
+export const AppContext = createContext();
 
 const Context = ({ children }) => {
 
-   const [carrito, setCarrito] = useState([])
+  const [carrito, setCarrito] = useState([]),
+        [totalItems, setTotalItems] = useState(0),
+        [total, setTotal] = useState(0),
+        [obj, setObj] = useState({}),
+        [name, setName] = useState(""),
+        [mail, setMail] = useState(""),
+        [repMail, setRepmail] = useState(""),
+        [allID,setAllID] = useState([]),
+        [tel, setTel] = useState("");
 
-   const [totalItems, setTotalItems] = useState(0)
+  const addItem = (product) => {
 
-   const [total, setTotal] = useState(0)
+    const isInCart = carrito.find(x => x.id === product.id)
 
-   const [obj, setObj] = useState({})
+    if (typeof isInCart !== "undefined") {
+      isInCart.cantidad += product.cantidad;
+      isInCart.precioTotal = isInCart.precio * isInCart.cantidad;
+      setCarrito([...new Set([...carrito, isInCart])]);
+      setTotalItems(totalItems + isInCart.cantidad);
+      setTotal(total + isInCart.precioTotal);
+      return;
+    }
 
-   const [name, setName] = useState("")
+    setCarrito([...carrito, product]);
+    setTotalItems(totalItems + product.cantidad);
+    setTotal(total + product.precioTotal);
+  }
 
-   const [mail, setMail] = useState("")
+  const removeItem = (item) => {
+    const removed = carrito.filter(x => x.id !== item.id);
+    setCarrito(removed);
+    setTotalItems(totalItems - item.cantidad);
+    setTotal(total - item.precioTotal);
+  }
 
-   const [repMail, setRepmail] = useState("")
-   const [allID,setAllID] = useState([])
-   const [tel, setTel] = useState("")
+  const clear = () => {
+    setCarrito([]);
+    setTotalItems(0);
+    setTotal(0);
+  }
 
-   const addItem = (product) => {
-      const isInCart = carrito.find(x => x.id === product.id)
+  useEffect(() => {
+    const dataBase = getFirestore();
+    dataBase.collection("products").get()
+    .then(data => setAllID(data.docs.map(prod => ( prod.id ))))
+    }, []);
 
-      if (typeof isInCart !== "undefined") {
-         isInCart.cantidad += product.cantidad
-         isInCart.precioTotal = isInCart.precio * isInCart.cantidad
-         setCarrito([...new Set([...carrito, isInCart])])
-         setTotalItems(totalItems + isInCart.cantidad)
-         setTotal(total + isInCart.precioTotal)
-         return;
-      }
+  const contextValue = {
+    addItem,
+    removeItem,
+    clear,
+    carrito,
+    totalItems,
+    totalPrecio: total,
+    obj,
+    setObj,
+    name,
+    setName,
+    mail,
+    setMail,
+    repMail,
+    setRepmail,
+    tel,
+    setTel,
+    allID
+  }
 
-      setCarrito([...carrito, product])
-      setTotalItems(totalItems + product.cantidad)
-      setTotal(total + product.precioTotal)
+  return(
+  <AppContext.Provider value={contextValue}>
+    {children} 
+  </AppContext.Provider>
 
-   }
+)}
 
-   const removeItem = (item) => {
-      const removed = carrito.filter(x => x.id !== item.id)
-      setCarrito(removed)
-      setTotalItems(totalItems - item.cantidad)
-      setTotal(total - item.precioTotal)
-   }
-
-   const clear = () => {
-      setCarrito([])
-      setTotalItems(0)
-      setTotal(0)
-   }
-
-   useEffect(() => {
-      const dataBase = getFirestore()
-      dataBase.collection("products").get()
-      .then(data => setAllID(data.docs.map(prod => ( prod.id ))) )
-      
-     }, [])
-       
-const contextValue = {
-   addItem: addItem,
-   removeItem: removeItem,
-   clear: clear,
-   carrito: carrito,
-   totalItems: totalItems,
-   totalPrecio: total,
-   obj: obj,
-   setObj: setObj,
-   name: name,
-   setName: setName,
-   mail: mail,
-   setMail: setMail,
-   repMail: repMail,
-   setRepmail: setRepmail,
-   tel: tel,
-   setTel: setTel,
-   allID : allID
-}
-
-return(
-<AppContext.Provider value={contextValue}>
-   {children} 
-</AppContext.Provider>
-
-)
-}
-
-export default Context
+export default Context;

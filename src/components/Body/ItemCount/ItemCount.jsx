@@ -1,43 +1,42 @@
 import React, {useState} from "react";
-import "../ItemCount/ItemCount.css"
+import "../ItemCount/ItemCount.css";
 
+const ItemCount = ({stockLimit , initial, onAdd}) => {
 
-const ItemCount = ({stockLimit , initial, onAdd}) => { 
-const [contador, setContador] = useState(initial)
+  const [contador, setContador] = useState(initial);
 
-const add = () => {
+  const add = () => {
     if(contador === stockLimit){
-        return 
+      return 
     }
     setContador(contador + 1)
-}
+  }
 
-const sub =  () => {
+  const sub =  () => {
     if(contador === 1){
-        return 
+      return 
     }
     setContador(contador - 1)
-}
+  }
 
-    return (
-        <div className="container">
-            <span className="text">Cantidad</span>
-         <div className="btnContainer">
-             <button 
-             className={contador === 1 ? "disabled" : "active"}
-             onClick={() => sub()}
-             >-</button>
-             <span>{contador}</span>
-             <button
-             className={contador === 10 ? "disabled" : "active"}
-             onClick={() => add()}
-             >+</button>
-         </div>
+  return (
+    <div className="container">
+      <span className="text">Cantidad</span>
 
-        <button className="botonCarrito" onClick={() => onAdd(contador)}>Añadir al carrito</button>
+      <div className="btnContainer">
+          <button 
+          className={contador === 1 ? "disabled" : "active"}
+          onClick={() => sub()}>-</button>
 
-         </div>
-    )
-}
+          <span>{contador}</span>
+          
+          <button
+          className={contador === 10 ? "disabled" : "active"}
+          onClick={() => add()}>+</button>
+      </div>
+
+    <button className="botonCarrito" onClick={() => onAdd(contador)}>Añadir al carrito</button>
+    </div>
+)}
 
 export default ItemCount;
